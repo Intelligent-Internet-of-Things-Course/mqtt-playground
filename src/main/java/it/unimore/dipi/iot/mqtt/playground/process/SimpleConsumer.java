@@ -1,4 +1,4 @@
-package com.iot.demo.mqtt.process;
+package it.unimore.dipi.iot.mqtt.playground.process;
 
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttClient;

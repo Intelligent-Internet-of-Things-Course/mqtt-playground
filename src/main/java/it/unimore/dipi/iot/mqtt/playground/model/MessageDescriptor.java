@@ -1,4 +1,4 @@
-package com.iot.demo.mqtt.model;
+package it.unimore.dipi.iot.mqtt.playground.model;
 
 public class MessageDescriptor {
 	

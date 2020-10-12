@@ -1,6 +1,6 @@
-package com.iot.demo.mqtt.process;
+package it.unimore.dipi.iot.mqtt.playground.process;
 
-import com.iot.demo.mqtt.sensors.EngineTemperatureSensor;
+import it.unimore.dipi.iot.mqtt.playground.sensors.EngineTemperatureSensor;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttClientPersistence;
@@ -11,7 +11,6 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Random;
 import java.util.UUID;
 
 public class SimpleProducer {
