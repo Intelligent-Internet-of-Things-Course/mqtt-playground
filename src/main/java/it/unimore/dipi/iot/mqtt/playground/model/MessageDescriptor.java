@@ -48,4 +48,13 @@ public class MessageDescriptor {
 		this.value = value;
 	}
 
+	@Override
+	public String toString() {
+		final StringBuffer sb = new StringBuffer("MessageDescriptor{");
+		sb.append("timestamp=").append(timestamp);
+		sb.append(", type='").append(type).append('\'');
+		sb.append(", value=").append(value);
+		sb.append('}');
+		return sb.toString();
+	}
 }

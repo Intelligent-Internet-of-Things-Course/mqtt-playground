@@ -1,9 +1,6 @@
 package it.unimore.dipi.iot.mqtt.playground.process;
 
-import org.eclipse.paho.client.mqttv3.IMqttClient;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttClientPersistence;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +54,7 @@ public class SimpleConsumer {
             //Connect to the target broker
             client.connect(options);
 
-            logger.info("Connected !");
+            logger.info("Connected ! Client Id: {}", clientId);
 
             //Subscribe to the target topic #. In that case the consumer will receive (if authorized) all the message
             //passing through the broker

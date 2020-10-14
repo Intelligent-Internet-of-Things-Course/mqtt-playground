@@ -52,7 +52,7 @@ public class DeviceProducer {
         try{
 
             //Generate a random MQTT client ID using the UUID class
-            String publisherId = UUID.randomUUID().toString();
+            String clientId = UUID.randomUUID().toString();
 
             //Represents a persistent data store, used to store outbound and inbound messages while they
             //are in flight, enabling delivery to the QoS specified. In that case use a memory persistence.
@@ -61,7 +61,7 @@ public class DeviceProducer {
 
             //The the persistence is not passed to the constructor the default file persistence is used.
             //In case of a file-based storage the same MQTT client UUID should be used
-            IMqttClient client = new MqttClient(BROKER_URL,publisherId, persistence);
+            IMqttClient client = new MqttClient(BROKER_URL,clientId, persistence);
 
             //Define MQTT Connection Options such as reconnection, persistent/clean session and connection timeout
             //Authentication option can be added -> See AuthProducer example
@@ -73,10 +73,12 @@ public class DeviceProducer {
             //Connect to the target broker
             client.connect(options);
 
-            logger.info("Connected !");
+            logger.info("Connected ! Client Id: {}", clientId);
             
             //Create a new descriptor for the device
-            DeviceDescriptor deviceDescriptor = new DeviceDescriptor(UUID.randomUUID().toString(), "ACME_CORPORATION", "0.1-beta");
+            DeviceDescriptor deviceDescriptor = new DeviceDescriptor(UUID.randomUUID().toString(),
+                    "ACME_CORPORATION",
+                    "0.1-beta");
 
             //Internal method to publish the device information as retained messages
             publishDeviceInfo(client, deviceDescriptor);
@@ -95,7 +97,10 @@ public class DeviceProducer {
                 //Internal Method to publish MQTT data using the created MQTT Client
             	if(payloadString != null)
             	    //The topic is combined with a hierarchical structure
-            		publishData(client, String.format("%s/%s/%s", DEVICE_TOPIC, deviceDescriptor.getDeviceId(), SENSOR_TOPIC), payloadString);
+            		publishData(client, String.format("%s/%s/%s",
+                            DEVICE_TOPIC,
+                            deviceDescriptor.getDeviceId(),
+                            SENSOR_TOPIC), payloadString);
             	else
             		logger.error("Skipping message send due to NULL Payload !");
             	

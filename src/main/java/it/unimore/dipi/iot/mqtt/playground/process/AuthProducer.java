@@ -84,6 +84,7 @@ public class AuthProducer {
                 //Internal Method to publish MQTT data using the created MQTT Client
                 //The final topic is obtained merging the MQTT_BASIC_TOPIC and TOPIC in order to send the messages
                 //to the correct topic root associated to the authenticated user
+                //Eg. /iot/user/000001/sensor/temperature
             	publishData(client, MQTT_BASIC_TOPIC + TOPIC, payloadString);
 
                 //Sleep for 1 Second

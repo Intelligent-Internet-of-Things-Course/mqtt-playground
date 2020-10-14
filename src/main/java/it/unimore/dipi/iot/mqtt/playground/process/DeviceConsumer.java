@@ -42,7 +42,7 @@ public class DeviceConsumer {
         try{
 
             //Generate a random MQTT client ID using the UUID class
-            String publisherId = UUID.randomUUID().toString();
+            String clientId = UUID.randomUUID().toString();
 
             //Represents a persistent data store, used to store outbound and inbound messages while they
             //are in flight, enabling delivery to the QoS specified. In that case use a memory persistence.
@@ -53,7 +53,7 @@ public class DeviceConsumer {
             //In case of a file-based storage the same MQTT client UUID should be used
             IMqttClient subscriber = new MqttClient(
                     String.format("tcp://%s:%d", BROKER_ADDRESS, BROKER_PORT),
-                    publisherId,
+                    clientId,
                     persistence);
 
             //Define MQTT Connection Options such as reconnection, persistent/clean session and connection timeout
@@ -66,9 +66,10 @@ public class DeviceConsumer {
             //Connect to the target broker
             subscriber.connect(options);
 
-            logger.info("Connected !");
+            logger.info("Connected ! Client Id: {}", clientId);
 
             //Subscribe to device information
+            //E.g., device/00001/info, device/00002/info
             subscriber.subscribe("device/+/info", (topic, msg) -> {
 
             	byte[] payload = msg.getPayload();
@@ -87,6 +88,7 @@ public class DeviceConsumer {
             });
             
             //Subscribe to device incoming telemetry data
+            //E.g., device/00001/sensor, device/00002/sensor
             subscriber.subscribe("device/+/sensor/#", (topic, msg) -> {
 
             	byte[] payload = msg.getPayload();

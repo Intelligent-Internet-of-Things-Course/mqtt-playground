@@ -61,7 +61,7 @@ public class SimpleProducer {
             //Connect to the target broker
             client.connect(options);
 
-            logger.info("Connected !");
+            logger.info("Connected ! Client Id: {}", mqttClientId);
 
             //Create an instance of an Engine Temperature Sensor
             EngineTemperatureSensor engineTemperatureSensor = new EngineTemperatureSensor();

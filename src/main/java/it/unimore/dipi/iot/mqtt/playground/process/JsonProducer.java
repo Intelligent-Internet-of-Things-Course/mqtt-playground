@@ -63,7 +63,7 @@ public class JsonProducer {
             client.connect(options);
 
             //Connect to the target broker
-            logger.info("Connected !");
+            logger.info("Connected ! Client Id: {}", mqttClientId);
 
             //Create an instance of an Engine Temperature Sensor
             EngineTemperatureSensor engineTemperatureSensor = new EngineTemperatureSensor();
@@ -110,12 +110,12 @@ public class JsonProducer {
     		
     		Gson gson = new Gson();
         	
-        	MessageDescriptor messageDescriptor = new MessageDescriptor(System.currentTimeMillis(), "ENGINE_TEMPERATURE_SENSOR", sensorValue);
+        	MessageDescriptor messageDescriptor = new MessageDescriptor(System.currentTimeMillis()
+                    , "ENGINE_TEMPERATURE_SENSOR",
+                    sensorValue);
         	
-        	String jsonStringPayload = gson.toJson(messageDescriptor);
-        	
-        	return jsonStringPayload;
-    		
+        	return gson.toJson(messageDescriptor);
+
     	}catch(Exception e) {
     		logger.error("Error creating json payload ! Message: {}", e.getLocalizedMessage());
     		return null;
