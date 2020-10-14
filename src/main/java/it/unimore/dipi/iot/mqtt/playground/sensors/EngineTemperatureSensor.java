@@ -2,6 +2,11 @@ package it.unimore.dipi.iot.mqtt.playground.sensors;
 
 import java.util.Random;
 
+/**
+ * @author Marco Picone, Ph.D. - picone.m@gmail.com
+ * @project mqtt-playground
+ * @created 14/10/2020 - 09:19
+ */
 public class EngineTemperatureSensor {
 
     private Random rnd;

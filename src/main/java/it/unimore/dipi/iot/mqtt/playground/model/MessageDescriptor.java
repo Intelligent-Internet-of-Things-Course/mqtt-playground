@@ -1,5 +1,12 @@
 package it.unimore.dipi.iot.mqtt.playground.model;
 
+/**
+ * Basic and demo structure of a common message carrying a numeric value
+ *
+ * @author Marco Picone, Ph.D. - picone.m@gmail.com
+ * @project mqtt-playground
+ * @created 14/10/2020 - 09:19
+ */
 public class MessageDescriptor {
 	
 	private long timestamp;
