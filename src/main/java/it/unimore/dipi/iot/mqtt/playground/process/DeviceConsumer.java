@@ -86,7 +86,7 @@ public class DeviceConsumer {
                 	logger.info("Message Received ({}) Message Received: {}", topic, new String(payload));
             });
             
-            //Subscribe to all incoming telemetry data
+            //Subscribe to device incoming telemetry data
             subscriber.subscribe("device/+/sensor/#", (topic, msg) -> {
 
             	byte[] payload = msg.getPayload();

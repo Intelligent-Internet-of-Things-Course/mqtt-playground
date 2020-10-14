@@ -94,6 +94,7 @@ public class DeviceProducer {
 
                 //Internal Method to publish MQTT data using the created MQTT Client
             	if(payloadString != null)
+            	    //The topic is combined with a hierarchical structure
             		publishData(client, String.format("%s/%s/%s", DEVICE_TOPIC, deviceDescriptor.getDeviceId(), SENSOR_TOPIC), payloadString);
             	else
             		logger.error("Skipping message send due to NULL Payload !");
