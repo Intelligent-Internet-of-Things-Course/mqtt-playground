@@ -3,7 +3,7 @@ package it.unimore.dipi.iot.mqtt.playground.process;
 import com.google.gson.Gson;
 import it.unimore.dipi.iot.mqtt.playground.model.DeviceDescriptor;
 import it.unimore.dipi.iot.mqtt.playground.model.MessageDescriptor;
-import it.unimore.dipi.iot.mqtt.playground.sensors.EngineTemperatureSensor;
+import it.unimore.dipi.iot.mqtt.playground.model.EngineTemperatureSensor;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttClientPersistence;

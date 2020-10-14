@@ -1,4 +1,4 @@
-package it.unimore.dipi.iot.mqtt.playground.sensors;
+package it.unimore.dipi.iot.mqtt.playground.model;
 
 import java.util.Random;
 

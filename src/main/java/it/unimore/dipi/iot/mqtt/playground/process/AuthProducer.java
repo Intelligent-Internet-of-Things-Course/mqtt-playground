@@ -1,6 +1,6 @@
 package it.unimore.dipi.iot.mqtt.playground.process;
 
-import it.unimore.dipi.iot.mqtt.playground.sensors.EngineTemperatureSensor;
+import it.unimore.dipi.iot.mqtt.playground.model.EngineTemperatureSensor;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.slf4j.Logger;
