@@ -56,6 +56,17 @@ public class SimpleConsumer {
 
             logger.info("Connected ! Client Id: {}", clientId);
 
+            /*
+            //Extended version for the subscribe method without the use of lambda function
+            client.subscribe("#", new IMqttMessageListener() {
+                @Override
+                public void messageArrived(String topic, MqttMessage message) throws Exception {
+                    byte[] payload = message.getPayload();
+                    logger.info("Message Received ({}) Message Received: {}", topic, new String(payload));
+                }
+            });
+            */
+
             //Subscribe to the target topic #. In that case the consumer will receive (if authorized) all the message
             //passing through the broker
             client.subscribe("#", (topic, msg) -> {

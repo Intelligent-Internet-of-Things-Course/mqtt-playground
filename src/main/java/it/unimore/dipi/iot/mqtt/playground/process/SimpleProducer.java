@@ -100,7 +100,9 @@ public class SimpleProducer {
      * @param msgString
      * @throws MqttException
      */
-    public static void publishData(IMqttClient mqttClient, String topic, String msgString) throws MqttException {
+    public static void publishData(IMqttClient mqttClient,
+                                   String topic,
+                                   String msgString) throws MqttException {
 
         logger.debug("Publishing to Topic: {} Data: {}", topic, msgString);
 
@@ -110,6 +112,7 @@ public class SimpleProducer {
             MqttMessage msg = new MqttMessage(msgString.getBytes());
             msg.setQos(0);
             msg.setRetained(false);
+
             mqttClient.publish(topic,msg);
             
             logger.debug("Data Correctly Published !");
