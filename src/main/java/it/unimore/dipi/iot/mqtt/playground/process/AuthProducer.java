@@ -21,19 +21,19 @@ public class AuthProducer {
     private final static Logger logger = LoggerFactory.getLogger(AuthProducer.class);
 
     //BROKER URL
-    private static String BROKER_URL = "tcp://155.185.228.20:7883";
+    private static String BROKER_URL = "tcp://<YOUR_BROKER_IP_ADDRESS>:<YOUR_BROKER_PORT>";
 
     //Message Limit generated and sent by the producer
     private static final int MESSAGE_COUNT = 1000;
 
     //MQTT account username to connect to the target broker
-    private static final String MQTT_USERNAME = "demo";
+    private static final String MQTT_USERNAME = "<YOUR_USERNAME>";
 
     //MQTT account password to connect to the target broker
-    private static final String MQTT_PASSWORD = "bhtlztwwehxhyirz";
+    private static final String MQTT_PASSWORD = "<YOUR_USERNAME>";
 
     //Basic Topic used to consume generated demo data (the topic is associated to the user)
-    private static final String MQTT_BASIC_TOPIC = "/iot/user/demo/";
+    private static final String MQTT_BASIC_TOPIC = "<YOUR_BASE_TOPIC>";
 
     //Additional Topic structure used to publish generated demo data. It is merged with the Basic Topic to obtain
     //the final used topic

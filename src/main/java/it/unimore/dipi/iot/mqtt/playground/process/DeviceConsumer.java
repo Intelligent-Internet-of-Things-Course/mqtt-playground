@@ -121,7 +121,6 @@ public class DeviceConsumer {
     	}catch(Exception e) {
     		return null;
     	}
-    	
     }
 
     /**

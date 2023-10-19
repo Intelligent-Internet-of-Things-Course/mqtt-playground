@@ -23,19 +23,20 @@ public class AuthConsumer {
     private final static Logger logger = LoggerFactory.getLogger(AuthConsumer.class);
 
     //IP Address of the target MQTT Broker
-    private static String BROKER_ADDRESS = "155.185.228.20";
+    private static String BROKER_ADDRESS = "<YOUR_BROKER_IP_ADDRESS>";
 
     //PORT of the target MQTT Broker
-    private static int BROKER_PORT = 7883;
+    private static int BROKER_PORT = 1883;
 
     //MQTT account username to connect to the target broker
-    private static final String MQTT_USERNAME = "demo";
+    //MQTT account username to connect to the target broker
+    private static final String MQTT_USERNAME = "<YOUR_USERNAME>";
 
     //MQTT account password to connect to the target broker
-    private static final String MQTT_PASSWORD = "bhtlztwwehxhyirz";
+    private static final String MQTT_PASSWORD = "<YOUR_PASSWORD>";
 
     //Basic Topic used to consume generated demo data (the topic is associated to the user)
-    private static final String MQTT_BASIC_TOPIC = "/iot/user/demo/";
+    private static final String MQTT_BASIC_TOPIC = "<YOUR_BASIC_TOPIC>";
 
     public static void main(String [ ] args) {
 

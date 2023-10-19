@@ -39,6 +39,9 @@ public class DeviceProducer {
     //Topic used to publish device information
     private static final String DEVICE_TOPIC = "device";
 
+    //Info Sub-Topic used to publish device information
+    private static final String DEVICE_INFO_TOPIC = "info";
+
     //Topic used to publish generated demo data
     private static final String SENSOR_TOPIC = "sensor/temperature";
 
@@ -76,7 +79,8 @@ public class DeviceProducer {
             logger.info("Connected ! Client Id: {}", clientId);
             
             //Create a new descriptor for the device
-            DeviceDescriptor deviceDescriptor = new DeviceDescriptor(UUID.randomUUID().toString(),
+            DeviceDescriptor deviceDescriptor = new DeviceDescriptor(
+                    UUID.randomUUID().toString(),
                     "ACME_CORPORATION",
                     "0.1-beta");
 
@@ -97,6 +101,7 @@ public class DeviceProducer {
                 //Internal Method to publish MQTT data using the created MQTT Client
             	if(payloadString != null)
             	    //The topic is combined with a hierarchical structure
+                    //Reference Topic Structure: device/<id>/sensor/temperature
             		publishData(client, String.format("%s/%s/%s",
                             DEVICE_TOPIC,
                             deviceDescriptor.getDeviceId(),
@@ -130,9 +135,13 @@ public class DeviceProducer {
     	try {
     		
             if (mqttClient.isConnected() ) {
-            	
-            	String topic = String.format("%s/%s/info", DEVICE_TOPIC, deviceDescriptor.getDeviceId()); 
-            	
+
+                //Topic Structure: device/<id>/info
+            	String topic = String.format("%s/%s/%s",
+                        DEVICE_TOPIC,
+                        deviceDescriptor.getDeviceId(),
+                        DEVICE_INFO_TOPIC);
+
                 MqttMessage msg = new MqttMessage(gson.toJson(deviceDescriptor).getBytes());
                 msg.setQos(0);
                 msg.setRetained(true);

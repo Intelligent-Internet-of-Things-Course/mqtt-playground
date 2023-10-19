@@ -110,8 +110,9 @@ public class JsonProducer {
     		
     		Gson gson = new Gson();
         	
-        	MessageDescriptor messageDescriptor = new MessageDescriptor(System.currentTimeMillis()
-                    , "ENGINE_TEMPERATURE_SENSOR",
+        	MessageDescriptor messageDescriptor = new MessageDescriptor(
+                    System.currentTimeMillis(),
+                    "ENGINE_TEMPERATURE_SENSOR",
                     sensorValue);
         	
         	return gson.toJson(messageDescriptor);

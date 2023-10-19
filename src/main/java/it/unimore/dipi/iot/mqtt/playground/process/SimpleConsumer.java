@@ -67,13 +67,14 @@ public class SimpleConsumer {
             });
             */
 
+
             //Subscribe to the target topic #. In that case the consumer will receive (if authorized) all the message
             //passing through the broker
             client.subscribe("#", (topic, msg) -> {
                 //The topic variable contain the specific topic associated to the received message. Using MQTT wildcards
                 //messaged from multiple and different topic can be received with the same subscription
                 //The msg variable is a MqttMessage object containing all the information about the received message
-            	byte[] payload = msg.getPayload();
+                byte[] payload = msg.getPayload();
                 logger.info("Message Received ({}) Message Received: {}", topic, new String(payload));
             });
 
